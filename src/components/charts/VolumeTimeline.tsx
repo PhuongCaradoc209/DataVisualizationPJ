@@ -15,31 +15,27 @@ export function VolumeTimeline({ data }: Props) {
     if (!svgRef.current || !wrapperRef.current || !data || data.length === 0)
       return;
 
-    // 1. Xử lý dữ liệu: Đếm số lượng phim theo năm
     const countsByYear = d3
       .rollups(
-        data.filter((d) => d.year_added), // Lọc bỏ dữ liệu null
+        data.filter((d) => d.year_added),
         (v) => v.length,
         (d) => d.year_added,
       )
-      .sort((a, b) => d3.ascending(a[0], b[0])); // Sắp xếp theo năm tăng dần
+      .sort((a, b) => d3.ascending(a[0], b[0]));
 
-    // 2. Setup kích thước tự động theo div bọc ngoài
     const width = wrapperRef.current.clientWidth;
-    const height = 250;
-    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const height = wrapperRef.current.clientHeight || 250;
+    const margin = { top: 20, right: 20, bottom: 45, left: 55 };
 
     const svg = d3.select(svgRef.current);
-    svg.selectAll("*").remove(); // Xóa chart cũ khi re-render
-
+    svg.selectAll("*").remove();
     svg.attr("viewBox", `0 0 ${width} ${height}`);
 
-    // 3. Setup Scales
     const x = d3
       .scaleBand()
       .domain(countsByYear.map((d) => d[0].toString()))
       .range([margin.left, width - margin.right])
-      .padding(0.2);
+      .padding(0.25);
 
     const y = d3
       .scaleLinear()
@@ -47,26 +43,52 @@ export function VolumeTimeline({ data }: Props) {
       .nice()
       .range([height - margin.bottom, margin.top]);
 
-    // 4. Vẽ Axes (Trục tọa độ)
-    svg
-      .append("g")
+    // X Axis
+    svg.append("g")
       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(
-        d3.axisBottom(x).tickValues(x.domain().filter((_, i) => i % 2 === 0)),
-      )
+      .call(d3.axisBottom(x).tickValues(x.domain().filter((_, i) => i % 2 === 0)))
       .attr("color", "#94a3b8");
 
-    svg
-      .append("g")
+    // X Axis Title
+    svg.append("text")
+      .attr("x", margin.left + (width - margin.left - margin.right) / 2)
+      .attr("y", height - 8)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#64748b")
+      .attr("font-size", "10px")
+      .attr("font-weight", "600")
+      .text("Calendar Year Released");
+
+    // Y Axis
+    svg.append("g")
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(y).ticks(5))
-      .attr("color", "#94a3b8");
+      .attr("color", "#94a3b8")
+      .call(g => g.select(".domain").remove());
+
+    // Y Axis Title
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 15)
+      .attr("x", -(height / 2))
+      .attr("text-anchor", "middle")
+      .attr("fill", "#64748b")
+      .attr("font-size", "10px")
+      .attr("font-weight", "600")
+      .text("Total Unit Growth");
 
     const tooltip = d3.select(tooltipRef.current);
 
-    // 5. Vẽ bars với tooltip
-    svg
-      .append("g")
+    // Grid lines
+    svg.append("g")
+      .attr("transform", `translate(${margin.left},0)`)
+      .attr("stroke", "#e2e8f0")
+      .attr("stroke-opacity", 0.3)
+      .call(d3.axisLeft(y).tickSize(-width + margin.left + margin.right).tickFormat(() => ""))
+      .call(g => g.select(".domain").remove());
+
+    // Bars
+    svg.append("g")
       .selectAll("rect")
       .data(countsByYear)
       .join("rect")
@@ -74,7 +96,7 @@ export function VolumeTimeline({ data }: Props) {
       .attr("width", x.bandwidth())
       .attr("y", height - margin.bottom)
       .attr("height", 0)
-      .attr("fill", "#ef4444")
+      .attr("fill", "#e60a15") // Strict visual branding compliance
       .attr("rx", 2)
       .style("cursor", "pointer")
       .on("mouseover", function (event, d) {
@@ -84,7 +106,8 @@ export function VolumeTimeline({ data }: Props) {
           .style("left", `${(event as MouseEvent).offsetX + 12}px`)
           .style("top", `${(event as MouseEvent).offsetY - 40}px`)
           .html(
-            `<span class="font-semibold">${d[0]}</span><br/>${d[1].toLocaleString()} titles`,
+            `<div class="font-semibold text-slate-300">Year ${d[0]}</div>
+             <div class="text-white text-sm font-bold mt-0.5">${d[1].toLocaleString()} Titles Addded</div>`
           );
       })
       .on("mousemove", function (event) {
@@ -93,22 +116,21 @@ export function VolumeTimeline({ data }: Props) {
           .style("top", `${(event as MouseEvent).offsetY - 40}px`);
       })
       .on("mouseout", function () {
-        d3.select(this).attr("fill", "#ef4444");
+        d3.select(this).attr("fill", "#e60a15");
         tooltip.style("opacity", "0");
       })
       .transition()
-      .duration(700)
+      .duration(800)
       .attr("y", (d) => y(d[1]))
       .attr("height", (d) => y(0) - y(d[1]));
   }, [data]);
 
   return (
-    <div ref={wrapperRef} className="relative h-full w-full">
-      <svg ref={svgRef} className="h-full w-full" />
-      {/* Tooltip */}
+    <div ref={wrapperRef} className="relative h-full w-full min-h-[250px]">
+      <svg ref={svgRef} className="h-full w-full overflow-visible" />
       <div
         ref={tooltipRef}
-        className="pointer-events-none absolute z-10 rounded-lg bg-slate-900 px-3 py-2 text-xs text-white shadow-lg opacity-0 transition-opacity"
+        className="pointer-events-none absolute z-10 rounded bg-slate-900 px-3 py-2 text-xs text-white shadow-lg opacity-0 transition-opacity border border-slate-800"
         style={{ whiteSpace: "nowrap" }}
       />
     </div>

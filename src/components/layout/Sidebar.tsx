@@ -18,7 +18,7 @@ const navItems: Array<NavItem> = [
   { to: "/dashboard", label: "Dashboard", icon: "dashboard" },
   { to: "/reports", label: "Reports", icon: "description" },
   { to: "/analysis", label: "Analysis", icon: "analytics" },
-  { to: "/settings", label: "Settings", icon: "settings" },
+  { to: "/talent", label: "Talent", icon: "stars" },
 ];
 
 export function Sidebar({ onNavigate }: SidebarProps) {

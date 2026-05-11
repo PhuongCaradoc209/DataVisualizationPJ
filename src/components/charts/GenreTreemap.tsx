@@ -124,7 +124,7 @@ export function GenreTreemap({ data }: Props) {
   }, [data]);
 
   return (
-    <div ref={wrapperRef} className="relative h-full w-full min-h-[300px]">
+    <div ref={wrapperRef} className="relative h-full w-full min-h-75">
       <svg ref={svgRef} className="h-full w-full" />
       {/* Tooltip */}
       <div

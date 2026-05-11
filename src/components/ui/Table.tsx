@@ -25,7 +25,7 @@ export function Table<TData extends object>({
   return (
     <div className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
       <table className="w-full table-auto border-collapse">
-        <thead className="bg-slate-50 dark:bg-slate-900/40">
+        <thead className="bg-primary/10 dark:bg-slate-900/40">
           <tr>
             {columns.map((col) => (
               <th

@@ -129,9 +129,9 @@ export function ReportsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Origins By Frequency</CardTitle>
+              <CardTitle>Geographic Distribution of Netflix Content</CardTitle>
               <CardDescription>
-                Quantifying high-density production hubs globally (Sum of released items)
+                Number of titles produced by country
               </CardDescription>
             </div>
           </CardHeader>
@@ -145,9 +145,9 @@ export function ReportsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Movie Duration Mapping</CardTitle>
+              <CardTitle>Distribution of Movie Durations on Netflix</CardTitle>
               <CardDescription>
-                Aggregated bin counts measuring structural length clustering in minutes
+                Distribution of movie durations in the Netflix catalog
               </CardDescription>
             </div>
           </CardHeader>

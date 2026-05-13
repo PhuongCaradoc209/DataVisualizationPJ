@@ -200,9 +200,9 @@ export function TalentPage() {
         <Card className="lg:col-span-3 h-full flex flex-col">
           <CardHeader className="flex flex-col sm:flex-row sm:items-start gap-3">
             <div className="flex-1">
-              <CardTitle>Star Power Cluster</CardTitle>
+              <CardTitle>Most Frequent Actors in the Netflix Catalog</CardTitle>
               <CardDescription>
-                Relative role frequency distribution by filter
+                Bubble size represents the number of appearances in Netflix titles
               </CardDescription>
             </div>
             {/* Relocated legend */}
@@ -231,7 +231,7 @@ export function TalentPage() {
         <Card className="lg:col-span-2 h-full">
           <CardHeader className="pb-3">
             <div>
-              <CardTitle>Production Drivers</CardTitle>
+              <CardTitle>Top Directorial Drivers</CardTitle>
               <CardDescription>
                 Top directors ranked by filtering subset
               </CardDescription>

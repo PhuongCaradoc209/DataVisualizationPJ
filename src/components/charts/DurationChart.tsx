@@ -62,7 +62,7 @@ export function DurationChart({ data }: { data: NetflixData[] }) {
       .attr("fill", "#64748b")
       .attr("font-size", "11px")
       .attr("font-weight", "600")
-      .text("Content Length (Minutes)");
+      .text("Movie Duration (Minutes)");
 
     // Y Axis
     svg.append("g")
@@ -80,7 +80,7 @@ export function DurationChart({ data }: { data: NetflixData[] }) {
       .attr("fill", "#64748b")
       .attr("font-size", "11px")
       .attr("font-weight", "600")
-      .text("Title Count");
+      .text("Number of Movies");
 
     // Grid Lines
     svg.append("g")

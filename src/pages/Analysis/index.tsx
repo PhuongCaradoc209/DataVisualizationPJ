@@ -218,7 +218,7 @@ export function AnalysisPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card className="rounded-2xl border-slate-100 p-5 shadow-sm dark:border-slate-800">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                   Top Origin
                 </span>
                 {/* Đổi từ stats.topCountry[1] thành stats.topCountry.count */}
@@ -244,7 +244,7 @@ export function AnalysisPage() {
 
             <Card className="rounded-2xl border-slate-100 p-5 shadow-sm dark:border-slate-800">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                   Peak Drop Month
                 </span>
                 {/* Đổi từ stats.peakMonth[1] thành stats.peakMonth.count */}
@@ -270,7 +270,7 @@ export function AnalysisPage() {
 
             <Card className="rounded-2xl border-slate-100 p-5 shadow-sm dark:border-slate-800">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                   Content Freshness
                 </span>
               </div>

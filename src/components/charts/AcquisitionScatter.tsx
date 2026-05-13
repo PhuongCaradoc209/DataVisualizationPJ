@@ -115,18 +115,7 @@ export function AcquisitionScatter({ data }: { data: NetflixData[] }) {
          d3.select(this).attr("opacity", 0.5).attr("r", 4.5).attr("stroke", "none");
          tooltip.style("opacity", 0);
       });
-
-    // Small explicit inline legend
-    const legend = svg.append("g")
-      .attr("transform", `translate(${width - 110}, 10)`);
-    
-    const legendData: Array<[string, string]> = [['Movie', '#e60a15'], ['TV Show', '#f59e0b']];
-    legendData.forEach((item, i) => {
-       const g = legend.append("g").attr("transform", `translate(0, ${i * 14})`);
-       g.append("circle").attr("r", 4).attr("fill", item[1]);
-       g.append("text").attr("x", 8).attr("y", 4).text(item[0]).attr("font-size", "10px").attr("fill", "#64748b").attr("font-weight", "500");
-    });
-
+      
   }, [data]);
 
   return (

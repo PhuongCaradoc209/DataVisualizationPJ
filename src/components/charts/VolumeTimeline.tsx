@@ -57,7 +57,7 @@ export function VolumeTimeline({ data }: Props) {
       .attr("fill", "#64748b")
       .attr("font-size", "10px")
       .attr("font-weight", "600")
-      .text("Calendar Year Released");
+      .text("Year Added to Netflix");
 
     // Y Axis
     svg.append("g")
@@ -75,7 +75,7 @@ export function VolumeTimeline({ data }: Props) {
       .attr("fill", "#64748b")
       .attr("font-size", "10px")
       .attr("font-weight", "600")
-      .text("Total Unit Growth");
+      .text("Number of Titles Added");
 
     const tooltip = d3.select(tooltipRef.current);
 

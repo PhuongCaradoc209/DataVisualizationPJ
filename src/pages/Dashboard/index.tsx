@@ -244,8 +244,8 @@ export function DashboardPage() {
         <Card className="lg:col-span-2">
           <CardHeader>
             <div>
-              <CardTitle>Top Genres</CardTitle>
-              <CardDescription>Top 15 genres in filtered set</CardDescription>
+              <CardTitle>Global Genre Distribution on Netflix</CardTitle>
+              <CardDescription>Distribution of the top genres in the Netflix catalog</CardDescription>
             </div>
           </CardHeader>
           <CardContent>
@@ -256,9 +256,9 @@ export function DashboardPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardTitle>Volume Timeline</CardTitle>
+              <CardTitle>Annual Netflix Content Additions</CardTitle>
               <CardDescription>
-                Titles added per year (filtered)
+                Number of titles added to Netflix each year
               </CardDescription>
             </div>
           </CardHeader>

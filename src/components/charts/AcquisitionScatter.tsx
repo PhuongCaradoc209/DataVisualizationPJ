@@ -56,7 +56,7 @@ export function AcquisitionScatter({ data }: { data: NetflixData[] }) {
       .attr("transform", "rotate(-90)") 
       .attr("y", 18) 
       .attr("x", -((height - margin.bottom + margin.top) / 2))
-      .text("Platform Listing Year")
+      .text("Year Added to Netflix")
       .attr("fill", "#64748b")
       .attr("font-size", "11px")
       .attr("font-weight", "600");

@@ -173,11 +173,16 @@ export function AnalysisPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             {/* Box Trái: Scatter Plot (Chiếm 3/5) */}
             <Card className="flex flex-col rounded-2xl border-slate-100 p-6 shadow-sm dark:border-slate-800 lg:col-span-3">
-              <div className="mb-6 flex items-center justify-between">
-                <h4 className="text-sm font-semibold tracking-wider text-slate-900 dark:text-slate-100">
-                  Acquisition Lag (Release vs Added)
-                </h4>
-                <div className="flex gap-3 text-xs">
+              <div className="mb-6 flex items-start justify-between">
+                <div>
+                  <h4 className="text-sm font-bold tracking-wider text-slate-900 dark:text-slate-100">
+                    Relationship Between Production Year and Netflix Listing Year
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Comparison between original release year and Netflix listing year
+                  </p>
+                </div>
+                <div className="flex gap-3 text-xs mt-1">
                   <span className="flex items-center gap-1">
                     <div className="h-2 w-2 rounded-full bg-red-500"></div>{" "}
                     Movie
@@ -195,10 +200,15 @@ export function AnalysisPage() {
 
             {/* Box Phải: Radar Chart (Chiếm 2/5) */}
             <Card className="flex flex-col rounded-2xl border-slate-100 p-6 shadow-sm dark:border-slate-800 lg:col-span-2">
-              <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
-                Maturity Rating Focus
-              </h4>
-              <div className="flex flex-1 items-center justify-center">
+              <div className="mb-4">
+                <h4 className="text-sm font-bold tracking-wider text-slate-900 dark:text-slate-100">
+                  Content Rating Distribution on Netflix
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Distribution of audience rating categories in the Netflix catalog
+                </p>
+              </div>
+              <div className="flex-1">
                 <RatingRadar data={filteredData} />
               </div>
             </Card>

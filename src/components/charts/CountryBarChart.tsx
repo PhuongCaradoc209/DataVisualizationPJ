@@ -56,7 +56,7 @@ export function CountryBarChart({ data }: { data: NetflixData[] }) {
       .attr("fill", "#64748b")
       .attr("font-size", "11px")
       .attr("font-weight", "600")
-      .text("Total Distinct Content Assets (Volumes)");
+      .text("Number of Titles");
 
     // Draw Y Axis
     svg.append("g")

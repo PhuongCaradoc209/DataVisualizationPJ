@@ -174,7 +174,7 @@ export function AnalysisPage() {
             {/* Box Trái: Scatter Plot (Chiếm 3/5) */}
             <Card className="flex flex-col rounded-2xl border-slate-100 p-6 shadow-sm dark:border-slate-800 lg:col-span-3">
               <div className="mb-6 flex items-center justify-between">
-                <h4 className="text-sm font-semibold tracking-wider text-slate-900 dark:text-slate-100">
+                <h4 className="text-sm font-semibold uppercase tracking-wide text-slate-900 dark:text-slate-100">
                   Acquisition Lag (Release vs Added)
                 </h4>
                 <div className="flex gap-3 text-xs">
@@ -195,7 +195,7 @@ export function AnalysisPage() {
 
             {/* Box Phải: Radar Chart (Chiếm 2/5) */}
             <Card className="flex flex-col rounded-2xl border-slate-100 p-6 shadow-sm dark:border-slate-800 lg:col-span-2">
-              <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">
+              <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-900 dark:text-slate-100">
                 Maturity Rating Focus
               </h4>
               <div className="flex flex-1 items-center justify-center">
@@ -208,7 +208,7 @@ export function AnalysisPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card className="rounded-2xl border-slate-100 p-5 shadow-sm dark:border-slate-800">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                   Top Origin
                 </span>
                 {/* Đổi từ stats.topCountry[1] thành stats.topCountry.count */}
@@ -234,7 +234,7 @@ export function AnalysisPage() {
 
             <Card className="rounded-2xl border-slate-100 p-5 shadow-sm dark:border-slate-800">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                   Peak Drop Month
                 </span>
                 {/* Đổi từ stats.peakMonth[1] thành stats.peakMonth.count */}
@@ -260,7 +260,7 @@ export function AnalysisPage() {
 
             <Card className="rounded-2xl border-slate-100 p-5 shadow-sm dark:border-slate-800">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wide text-slate-600">
                   Content Freshness
                 </span>
               </div>

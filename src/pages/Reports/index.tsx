@@ -70,7 +70,7 @@ export function ReportsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardDescription>Global Coverage</CardDescription>
+              <CardDescription className="uppercase font-semibold text-xs text-slate-500">Global Coverage</CardDescription>
               <CardTitle className="mt-2 text-2xl">
                 {stats.countriesCount} Countries
               </CardTitle>
@@ -84,7 +84,7 @@ export function ReportsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardDescription>Avg Movie Length</CardDescription>
+              <CardDescription className="uppercase font-semibold text-xs text-slate-500">Avg Movie Length</CardDescription>
               <CardTitle className="mt-2 text-2xl">
                 {stats.avgDuration} mins
               </CardTitle>
@@ -98,7 +98,7 @@ export function ReportsPage() {
         <Card>
           <CardHeader>
             <div>
-              <CardDescription>Dataset Volume</CardDescription>
+              <CardDescription className="uppercase font-semibold text-xs text-slate-500">Dataset Volume</CardDescription>
               <CardTitle className="mt-2 text-2xl">
                 {stats.total.toLocaleString()}
               </CardTitle>

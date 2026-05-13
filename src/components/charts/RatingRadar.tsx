@@ -41,7 +41,7 @@ export function RatingRadar({ data }: { data: NetflixData[] }) {
       g.append("circle")
         .attr("r", radius * t)
         .style("fill", "none")
-        .style("stroke", "#e2e8f0")
+        .style("stroke", "#b6c2d6")
         .style("stroke-width", 1)
         .style("stroke-dasharray", "2,2");
     });

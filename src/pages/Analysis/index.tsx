@@ -173,7 +173,7 @@ export function AnalysisPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             {/* Box Trái: Scatter Plot (Chiếm 3/5) */}
             <Card className="flex flex-col rounded-2xl border-slate-100 p-6 shadow-sm dark:border-slate-800 lg:col-span-3">
-              <div className="mb-6 flex items-start justify-between">
+              <div className="mb-auto flex items-start justify-between">
                 <div>
                   <h4 className="text-sm font-bold tracking-wider text-slate-900 dark:text-slate-100">
                     Relationship Between Production Year and Netflix Listing Year

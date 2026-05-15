@@ -67,14 +67,6 @@ export function Sidebar({ onNavigate }: SidebarProps) {
           ))}
         </nav>
       </div>
-
-      <div className="flex flex-col gap-3">
-        <Button variant="primary" className="w-full justify-center">
-          <Icon name="download" className="text-lg" />
-          Export
-        </Button>
-        <div className="text-xs text-slate-500 dark:text-slate-400">&nbsp;</div>
-      </div>
     </aside>
   );
 }

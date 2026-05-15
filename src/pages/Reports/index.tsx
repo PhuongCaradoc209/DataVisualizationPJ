@@ -45,6 +45,21 @@ export function ReportsPage() {
     };
   }, []);
 
+  const handleExportJSON = () => {
+    const dataStr = JSON.stringify(allData, null, 2);
+    const dataUri = "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
+    const exportFileDefaultName = "netflix_analytical_report.json";
+
+    const linkElement = document.createElement("a");
+    linkElement.setAttribute("href", dataUri);
+    linkElement.setAttribute("download", exportFileDefaultName);
+    linkElement.click();
+  };
+
+  const handlePrintSnapshot = () => {
+    window.print();
+  };
+
   return (
     <div className="space-y-6">
       {/* Standard Page Header */}
@@ -56,10 +71,18 @@ export function ReportsPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Button variant="secondary" className="flex items-center gap-2">
+          <Button 
+            variant="secondary" 
+            className="flex items-center gap-2"
+            onClick={handleExportJSON}
+          >
             <Icon name="file_download" className="text-[18px]" /> Export JSON
           </Button>
-          <Button variant="primary" className="flex items-center gap-2">
+          <Button 
+            variant="primary" 
+            className="flex items-center gap-2"
+            onClick={handlePrintSnapshot}
+          >
             <Icon name="print" className="text-[18px]" /> Print Snapshot
           </Button>
         </div>
